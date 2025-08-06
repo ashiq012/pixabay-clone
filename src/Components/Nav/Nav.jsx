@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './Nav.css';
-
+import { useContext } from 'react';
+import PixabayContext from '../../context/PixabayContext.jsx';
 function Nav() {
+  const { fetchBycat } = useContext(PixabayContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const categories = [
@@ -28,7 +30,7 @@ function Nav() {
         <ul className={`nav-list ${menuOpen ? 'active' : ''}`}>
           {categories.map((category, index) => (
             <li key={index}>
-              <button className="nav-btn">{category}</button>
+              <button className="nav-btn" onClick={()=>fetchBycat(category.toLowerCase())}>{category}</button>
             </li>
           ))}
         </ul>

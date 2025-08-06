@@ -6,8 +6,9 @@ function PixabayState(props) {
     const [apiData, setapiData] = useState([]);
     useEffect( () => {
         const fetchData = async() => {
+        const apikey = "51650272-dfa3ebb19c0fd1dd394c7d711"
         try{
-            const res = await fetch(`https://pixabay.com/api/?key=51650272-dfa3ebb19c0fd1dd394c7d711&q=london&image_type=photo&pretty=true`)
+            const res = await fetch(`https://pixabay.com/api/?key=${apikey}&q=london&image_type=photo&pretty=true`)
             // if(!res){
             // throw new res.json({
             //     success: false,
@@ -22,15 +23,33 @@ function PixabayState(props) {
             console.error("Error fetching data:", err);
         }
     };
+      
     fetchData();
 
 },[])
 
-    
+     const fetchBycat = async(cat) => {
+        const apikey = "51650272-dfa3ebb19c0fd1dd394c7d711"
+        try{
+            const res = await fetch(`https://pixabay.com/api/?key=${apikey}&category=${cat}&image_type=photo&pretty=true`)
+            // if(!res){
+            // throw new res.json({
+            //     success: false,
+            //     message: "Failed to fetch data"
+            //         })}
+            const apiData = await res.json();
+            setapiData(apiData.hits);
+            
+        }
+        catch(err){
+            console.error("Error fetching data:", err);
+        }
+    };
   return (
     <PixabayContext.Provider
     value = {{
-        apiData
+        apiData,
+        fetchBycat
     }}>
         {props.children}
     </PixabayContext.Provider>

@@ -1,0 +1,17 @@
+.image{
+    height: 40vh;
+    width: auto;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    border-radius: 10px;
+
+}
+.image:hover{
+    scale: 1.1;
+    transition: all .6s ease-in-out;
+}
+.all-image{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;;
+}

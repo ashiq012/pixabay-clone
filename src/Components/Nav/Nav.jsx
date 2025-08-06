@@ -3,7 +3,7 @@ import './Nav.css';
 import { useContext } from 'react';
 import PixabayContext from '../../context/PixabayContext.jsx';
 function Nav() {
-  const { fetchBycat } = useContext(PixabayContext);
+  const { fetchBycat ,setSearchInput } = useContext(PixabayContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const categories = [
@@ -17,6 +17,9 @@ function Nav() {
     <div>
       <nav className="navbar">
         <button className="icon">Pixabay</button>
+        <input type="text" className="search-bar" placeholder="Search..."
+        onChange={(e) => setSearchInput(e.target.value)}
+        />
 
         {/* Hamburger Button */}
         <button 

@@ -1,6 +1,10 @@
 .image{
-    height: 40vh;
-    width: auto;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     border-radius: 10px;
@@ -11,7 +15,26 @@
     transition: all .6s ease-in-out;
 }
 .all-image{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;;
+    display: grid;
+    justify-content: center;    
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+@media (max-width: 768px) {
+    .all-image{
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    .all-image{
+        gap: 10px;
+    }
+    .image{
+        padding: 5px;
+    }
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
 }

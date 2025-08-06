@@ -9,7 +9,7 @@ function PixabayState(props) {
         const fetchData = async() => {
         const apikey = "51650272-dfa3ebb19c0fd1dd394c7d711"
         try{
-            const res = await fetch(`https://pixabay.com/api/?key=${apikey}&q=${searchInput}&image_type=photo&pretty=true`)
+            const res = await fetch(`https://pixabay.com/api/?key=${apikey}&q=${searchInput}&image_type=photo&pretty=true&per_page=100`)
              if(!res){
             throw new res.json({
                 success: false,
@@ -32,7 +32,7 @@ function PixabayState(props) {
      const fetchBycat = async(cat) => {
         const apikey = "51650272-dfa3ebb19c0fd1dd394c7d711"
         try{
-            const res = await fetch(`https://pixabay.com/api/?key=${apikey}&category=${cat}&image_type=photo&pretty=true`)
+            const res = await fetch(`https://pixabay.com/api/?key=${apikey}&category=${cat}&image_type=photo&pretty=true&per_page=100`)
              if(!res){
             throw new res.json({
                 success: false,
